@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "composite": false,
+    "emitDeclarationOnly": false,
+    "exactOptionalPropertyTypes": false, // TODO: remove
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "include": ["./src/**/*", "./tests/**/*", "./tools/**/*", "./*"]
+}

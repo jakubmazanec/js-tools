@@ -1,0 +1,14 @@
+{
+  "extends": "../../../tsconfig.options.json",
+  "compilerOptions": {
+    "composite": false,
+    "exactOptionalPropertyTypes": false, // TODO: remove
+    "noEmit": true
+  },
+  "include": ["./**/*"],
+  "references": [
+    {
+      "path": ".."
+    }
+  ]
+}
