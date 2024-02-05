@@ -17,7 +17,7 @@ for (let project of workspace.projects) {
 # Run `npx carson update workspace` to regenerate.
 #
 
-FROM node:16-alpine
+FROM node:20-alpine
 
 # Create a new user and change directory ownership
 RUN adduser --disabled-password  --home /app  --uid 12000  --gecos '' nodeuser
