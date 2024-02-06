@@ -46,7 +46,7 @@
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-testing-library": "^6.2.0",
     "eslint-plugin-unicorn": "^51.0.0",
-    "eslint-plugin-vitest": "^0.3.21"
+    "eslint-plugin-vitest": "^0.3.22"
   },
   "devDependencies": {
     "@types/confusing-browser-globals": "^1.0.3",
