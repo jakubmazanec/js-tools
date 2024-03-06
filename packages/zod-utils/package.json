@@ -36,7 +36,7 @@
     "concurrently": "^8.2.2",
     "del-cli": "^5.1.0",
     "esbuild": "^0.20.1",
-    "eslint": "^8.56.0",
+    "eslint": "^8.57.0",
     "prettier": "^3.2.5",
     "prettier-plugin-packagejson": "^2.4.12",
     "typedoc": "^0.25.10",
