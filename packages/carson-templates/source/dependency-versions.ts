@@ -7,6 +7,7 @@ import {
   CHANGELOG_PACKAGE_NAME,
   LINTER_CONFIG_PACKAGE_NAME,
   TEMPLATE_PACKAGE_NAME,
+  UI_PACKAGE_NAME,
 } from './constants.js';
 
 let require = createRequire(import.meta.url);
@@ -39,6 +40,7 @@ export const DEPENDENCY_VERSIONS: Record<string, string> = {
     isTemplatesPackageVersionPrerelease ? templatesPackageVersion : `^${templatesPackageVersion}`,
   [CHANGELOG_PACKAGE_NAME]: '^2.0.0',
   [LINTER_CONFIG_PACKAGE_NAME]: '^3.0.0',
+  [UI_PACKAGE_NAME]: '^0.1.0',
 
   '@changesets/cli': '^2.0.0',
   '@chromatic-com/storybook': '^1.0.0',
