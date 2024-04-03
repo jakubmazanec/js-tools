@@ -24,13 +24,21 @@ export default defineConfig(
         port: 5000,
         strictPort: true,
       },
-      plugins: [!process.env.VITEST && remix({
-        future: {
-          v3_fetcherPersist: true,
-          v3_relativeSplatPath: true,
-          v3_throwAbortReason: true,
-        },
-      })],
+      plugins: [
+        !process.env.VITEST &&
+          remix(
+            _.merge(
+              {
+                future: {
+                  v3_fetcherPersist: true,
+                  v3_relativeSplatPath: true,
+                  v3_throwAbortReason: true,
+                },
+              },
+              <%- JSON.stringify(project.config.overrides?.remixConfig ?? {}, null, 2) %>,
+            ),
+          ),
+      ],
       test: {
         environment: 'happy-dom',
         setupFiles: ['tests/setup.ts'],

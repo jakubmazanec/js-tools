@@ -220,6 +220,9 @@ web_modules/
 ## Next.js build output
 .next
 
+## Storybook build output
+storybook-static/
+
 ## Serverless directories
 .serverless/
 
