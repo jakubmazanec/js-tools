@@ -5,7 +5,7 @@ strategy: overwrite
 <%
 let turboConfig = {
   $schema: 'https://turborepo.org/schema.json',
-  pipeline: {
+  tasks: {
     build: {
       dependsOn: ['^build', 'codegen'],
       outputs: [`${BUILD_DIRECTORY}/**`, 'app/**'],
@@ -41,7 +41,7 @@ let turboConfig = {
       outputs: [],
     },
   },
-  globalEnv: [],
+  globalEnv: ['CI'],
   globalDependencies: [
     '.editorconfig',
     '.eslintrc.cjs',
@@ -61,7 +61,7 @@ if (workspace.projects.some((project) => project.config.deployment?.dbInstance))
 }
 
 if (workspace.projects.find((project) => project.name === LINTER_CONFIG_PACKAGE_NAME)) {
-  turboConfig.pipeline.lint.dependsOn = [`${LINTER_CONFIG_PACKAGE_NAME}#build`, '^build', 'codegen'];
+  turboConfig.tasks.lint.dependsOn = [`${LINTER_CONFIG_PACKAGE_NAME}#build`, '^build', 'codegen'];
 }
 -%>
 <%- JSON.stringify(turboConfig, null, 2) %>
