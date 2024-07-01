@@ -11,13 +11,14 @@ if (project.packageJson.bin) {
 
 files.sort();
 
-let dependencies = [
+let developmentDependencies = [
   LINTER_CONFIG_PACKAGE_NAME,
   '@chromatic-com/storybook',
   '@storybook/addon-essentials',
   '@storybook/addon-interactions',
   '@storybook/addon-links',
   '@storybook/blocks',
+  '@storybook/preview-api',
   '@storybook/react',
   '@storybook/react-vite',
   '@storybook/test',
@@ -49,7 +50,6 @@ let dependencies = [
 ].filter((dependency) => {
   return !Object.keys(project.packageJson.dependencies ?? {}).some((key) => key === dependency); // if a project package.json already contains dependency, we don't need to add it
 });
-let developmentDependencies = getDependencies(dependencies, workspace);
 let packageJson = lodash.merge(
   {
     repository: {
@@ -57,10 +57,13 @@ let packageJson = lodash.merge(
       directory: project.relativePath,
     },
     type: 'module',
-    exports: `./${BUILD_DIRECTORY}/main.js`,
+    exports: {
+      '.': `./${BUILD_DIRECTORY}/main.js`,
+      './package.json': './package.json',
+    },
     files,
     scripts: {
-      build: `del-cli ${BUILD_DIRECTORY} tsconfig.tsbuildinfo && ${BUILD_TO_ESM_COMMAND} && tsc && storybook build`,
+      build: `del-cli ${BUILD_DIRECTORY} tsconfig.tsbuildinfo && ${BUILD_TO_ESM_COMMAND} --loader:.woff2=copy && tsc && storybook build`,
       clean: `del-cli coverage ${BUILD_DIRECTORY} *.tsbuildinfo`,
       develop: `concurrently "${BUILD_TO_ESM_COMMAND} --watch" "tsc --watch" "storybook dev -p 6006 --no-open"`,
       document: 'del-cli docs && typedoc --options typedoc.config.cjs',
@@ -69,7 +72,7 @@ let packageJson = lodash.merge(
       test: `del-cli coverage && ${TEST_COMMAND}`,
       typecheck: 'tsc --project tsconfig.typecheck.json',
     },
-    devDependencies: developmentDependencies,
+    devDependencies: getDependencies(developmentDependencies, workspace),
     peerDependencies: {
       react: '18.x',
       'react-dom': '18.x',

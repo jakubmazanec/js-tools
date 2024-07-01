@@ -23,6 +23,7 @@
 - [@jakubmazanec/template](./packages/template) – TypeScript-first library for working with
   templates using EJS and Zod.
 - [@jakubmazanec/ts-utils](./packages/ts-utils) – Collection of TypeScript types and utilities.
+- [@jakubmazanec/ui](./packages/ui) – React component library.
 - [@jakubmazanec/zod-utils](./packages/zod-utils) – Collection of Zod schemas and utilities.
 <!-- projects -->
 

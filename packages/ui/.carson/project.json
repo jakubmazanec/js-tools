@@ -1,0 +1,12 @@
+{
+  "template": "@jakubmazanec/carson-templates:projects/react-library",
+  "overrides": {
+    "packageJson": {
+      "exports": {
+        ".": "./build/main.js",
+        "./development": "./build/development.js",
+        "./css": "./build/styles.css"
+      }
+    }
+  }
+}
