@@ -78,7 +78,7 @@ export const DEPENDENCY_VERSIONS: Record<string, string> = {
   'react-dom': '^18.0.0',
   storybook: '^8.0.0',
   tailwindcss: '^3.0.0',
-  turbo: '^1.0.0',
+  turbo: '^2.0.0',
   typedoc: '^0.24.0',
   'typedoc-plugin-markdown': '^3.0.0',
   typescript: '^5.0.0',
