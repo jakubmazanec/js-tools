@@ -1,0 +1,1 @@
+export type ComponentThemeDefinitionElements = string[];

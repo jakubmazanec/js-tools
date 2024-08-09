@@ -10,6 +10,7 @@ export const CARSON_PACKAGE_NAME = '@jakubmazanec/carson';
 export const TEMPLATE_PACKAGE_NAME = '@jakubmazanec/carson-templates';
 export const LINTER_CONFIG_PACKAGE_NAME = '@jakubmazanec/eslint-config';
 export const CHANGELOG_PACKAGE_NAME = '@jakubmazanec/changesets-changelog';
+export const UI_PACKAGE_NAME = '@jakubmazanec/ui';
 
 export const MAIN_BRANCH_NAMES = new Set(['main', 'master']);
 export const DEVELOPMENT_BRANCH_NAMES = new Set(['development', 'develop', 'dev']);

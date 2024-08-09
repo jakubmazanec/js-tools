@@ -64,7 +64,7 @@ let packageJson = lodash.merge(
     },
     files,
     scripts: {
-      build: `del-cli ${BUILD_DIRECTORY} tsconfig.tsbuildinfo && ${BUILD_TO_ESM_COMMAND} && tsc && storybook build`,
+      build: `del-cli ${BUILD_DIRECTORY} tsconfig.tsbuildinfo && ${BUILD_TO_ESM_COMMAND} --loader:.woff2=copy && tsc && storybook build`,
       clean: `del-cli coverage ${BUILD_DIRECTORY} *.tsbuildinfo`,
       develop: `concurrently "${BUILD_TO_ESM_COMMAND} --watch" "tsc --watch" "storybook dev -p 6006 --no-open"`,
       document: 'del-cli docs && typedoc --options typedoc.config.cjs',

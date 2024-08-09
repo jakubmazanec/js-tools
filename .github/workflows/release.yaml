@@ -125,6 +125,13 @@ jobs:
         run: |
           git push --follow-tags
 
+      - name: Deploy "@jakubmazanec/ui"
+        run: |
+          cd packages/ui
+          npx --yes chromatic --project-token="$CHROMATIC_TOKEN" --storybook-build-dir storybook-static --exit-zero-on-changes --no-interactive
+        env:
+          CHROMATIC_TOKEN: ${{ secrets.JAKUBMAZANEC_UI_CHROMATIC_TOKEN }}
+
       - name: Checkout main branch
         run: |
           git fetch -p origin
